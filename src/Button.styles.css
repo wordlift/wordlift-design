@@ -95,7 +95,7 @@
 
   &--disabled {
     &:hover {
-      @apply shadow-none;
+      @apply shadow-none cursor-default;
     }
   }
 }
