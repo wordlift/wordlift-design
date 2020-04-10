@@ -12,7 +12,7 @@ export const background = {
 export const color = {
   // Palette
   primary: '#026fff', // coral
-  secondary: '#1EA7FD', // ocean
+  secondary: '#606972', // ocean
   tertiary: '#DDDDDD',
 
   orange: '#FC521F',
@@ -25,11 +25,11 @@ export const color = {
   // Monochrome
   lightest: '#ffffff',
   lighter: '#F8F8F8',
-  light: '#F3F3F3',
+  light: '#f7f8fb',
   mediumlight: '#EEEEEE',
   medium: '#DDDDDD',
-  mediumdark: '#999999',
-  dark: '#666666',
+  mediumdark: '#8f8f8f',
+  dark: '#2d3338',
   darker: '#444444',
   darkest: '#333333',
 
@@ -38,9 +38,12 @@ export const color = {
   // Status
   positive: '#66BF3C',
   negative: '#FF4400',
-  warning: '#E69D00',
+  warning: '#fcba0b',
   disabledlight: '#eae5f0',
-  disableddark: '#c3b8cb',
+  disableddark: '#c3b8cb', 
+  danger: '#ff1e1f',
+  success: '#15b95a'
+
 };
 
 export const spacing = {

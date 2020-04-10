@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { darken, rgba } from "polished";
+import { rgba } from "polished";
 import { color, typography } from "./shared/styles";
 import { easing } from "./shared/animation";
 
@@ -43,14 +43,14 @@ const VARIATIONS = {
 const switchPadding = (size) => {
   switch (size) {
     case SIZES.MINI:
-      return ".6rem 1.4rem";
+      return ".5rem 1.4rem";
     case SIZES.SMALL:
-      return ".7rem 1.6rem";
+      return ".6rem 1.6rem";
     case SIZES.MEDIUM:
-      return ".8rem 1.8rem";
+      return ".7rem 1.8rem";
     // large
     default:
-      return "1rem 4rem";
+      return ".9rem 4rem";
   }
 };
 
@@ -68,8 +68,46 @@ const switchFontSize = (size) => {
   }
 };
 
+const switchBorderColor = (props) => {
+  if (props.disabled) return color.disabledlight;
+
+  switch (props.appearance) {
+    case APPEARANCES.PRIMARY:
+      return color.primary;
+    case APPEARANCES.DANGER:
+      return color.danger;
+    case APPEARANCES.WARNING:
+      return color.warning;
+    case APPEARANCES.SUCCESS:
+      return color.success;
+    case APPEARANCES.SECONDARY:
+      return color.secondary;
+    case APPEARANCES.DARK:
+      return color.dark;
+    case APPEARANCES.LIGHT:
+      return color.light;
+    default:
+      return color.primary;
+  }
+};
+
+const switchColor = (props) => {
+  if (props.disabled) return color.disableddark;
+
+  if (VARIATIONS.OUTLINE === props.variation) {
+    if (APPEARANCES.LIGHT === props.appearance) return color.mediumdark;
+    else return switchBorderColor(props);
+  }
+
+  if (APPEARANCES.LIGHT === props.appearance) {
+    return color.darkest;
+  } else {
+    return color.lightest;
+  }
+};
+
 const StyledButton = styled.button`
-  border: 0;
+  border: .14rem solid transparent;
   border-radius: 4px;
   cursor: pointer;
   display: inline-block;
@@ -137,15 +175,6 @@ const StyledButton = styled.button`
   }
 
   ${(props) =>
-    props.disabled &&
-    `
-      cursor: not-allowed !important;
-      &:hover {
-        transform: none;
-      }
-    `}
-
-  ${(props) =>
     props.isUnclickable &&
     `
       cursor: default !important;
@@ -190,8 +219,9 @@ const StyledButton = styled.button`
   ${(props) =>
     props.variation === VARIATIONS.FILL &&
     `
-      background: ${color.primary};
-      color: ${color.lightest};
+      background: ${switchBorderColor(props)};
+      border-color: ${switchBorderColor(props)};
+      color: ${switchColor(props)};
 
       ${
         !props.isLoading &&
@@ -212,8 +242,9 @@ const StyledButton = styled.button`
   ${(props) =>
     props.variation === VARIATIONS.OUTLINE &&
     `
-      border: .1rem solid ${color.primary};
-      color: ${color.primary};
+      background: ${color.lightest};
+      border-color: ${switchBorderColor(props)};
+      color: ${switchColor(props)};
 
       ${
         !props.isLoading &&
@@ -238,12 +269,14 @@ const StyledButton = styled.button`
       cursor: not-allowed !important;
       &:hover {
         transform: none;
+        box-shadow: none;
       }
       
     ${
       props.variation === VARIATIONS.FILL &&
       `
       background-color: ${color.disabledlight};
+      border-color: ${color.disabledlight};
       color: ${color.disableddark};
     `
     }
@@ -257,56 +290,6 @@ const StyledButton = styled.button`
     }
 
   `}
-
-  ${(props) =>
-    props.appearance === APPEARANCES.SECONDARY &&
-    `
-      background: ${color.secondary};
-      color: ${color.lightest};
-
-      ${
-        !props.isLoading &&
-        `
-          &:hover {
-            background: ${darken(0.05, color.secondary)};
-          }
-          &:active {
-            box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 3em inset;
-          }
-          &:focus {
-            box-shadow: ${rgba(color.secondary, 0.4)} 0 1px 9px 2px;
-          }
-          &:focus:hover {
-            box-shadow: ${rgba(color.secondary, 0.2)} 0 8px 18px 0px;
-          }
-        `
-      }
-    `}
-
-  ${(props) =>
-    props.appearance === APPEARANCES.TERTIARY &&
-    `
-      background: ${color.tertiary};
-      color: ${color.darkest};
-
-      ${
-        !props.isLoading &&
-        `
-          &:hover {
-            background: ${darken(0.05, color.tertiary)};
-          }
-          &:active {
-            box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 3em inset;
-          }
-          &:focus {
-            box-shadow: ${rgba(color.tertiary, 0.4)} 0 1px 9px 2px;
-          }
-          &:focus:hover {
-            box-shadow: ${rgba(color.tertiary, 0.2)} 0 8px 18px 0px;
-          }
-        `
-      }
-    `}
 
   ${(props) =>
     props.appearance === APPEARANCES.OUTLINE &&

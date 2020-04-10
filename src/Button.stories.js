@@ -1,10 +1,16 @@
+/**
+ * External dependencies
+ */
 import React from "react";
 import styled from "styled-components";
-import { action } from "@storybook/addon-actions";
-
-import { Button } from "./Button";
-import { Icon } from "./Icon";
-import { StoryLinkWrapper } from "./StoryLinkWrapper";
+import {action} from "@storybook/addon-actions";
+import {boolean, select, withKnobs} from "@storybook/addon-knobs";
+/**
+ * Internal dependencies
+ */
+import {Button} from "./Button";
+import {Icon} from "./Icon";
+import {StoryLinkWrapper} from "./StoryLinkWrapper";
 
 const CustomButton = styled.button`
   border: 1px solid green;
@@ -351,10 +357,18 @@ export const buttonSizes = () => (
       Mini
     </Button>
     <br />
-    <Button isDisabled={true} size={"large"}>Large</Button>
-    <Button isDisabled={true} size={"medium"}>Medium</Button>
-    <Button isDisabled={true} size={"small"}>Small</Button>
-    <Button isDisabled={true} size={"mini"}>Mini</Button>
+    <Button isDisabled={true} size={"large"}>
+      Large
+    </Button>
+    <Button isDisabled={true} size={"medium"}>
+      Medium
+    </Button>
+    <Button isDisabled={true} size={"small"}>
+      Small
+    </Button>
+    <Button isDisabled={true} size={"mini"}>
+      Mini
+    </Button>
     <br />
     <Button isDisabled={true} size={"large"} variation={"outline"}>
       Large
@@ -368,9 +382,75 @@ export const buttonSizes = () => (
     <Button isDisabled={true} size={"mini"} variation={"outline"}>
       Mini
     </Button>
+    <br />
+    <Button appearance={"danger"} size={"large"}>
+      Danger
+    </Button>
+    <Button appearance={"danger"} size={"large"} variation={"outline"}>
+      Danger Outline
+    </Button>
+    <br />
+    <Button appearance={"warning"} size={"large"}>
+      Warning
+    </Button>
+    <Button appearance={"warning"} size={"large"} variation={"outline"}>
+      Warning Outline
+    </Button>
+    <br />
+    <Button appearance={"success"} size={"large"}>
+      Success
+    </Button>
+    <Button appearance={"success"} size={"large"} variation={"outline"}>
+      Success Outline
+    </Button>
+    <br />
+    <Button appearance={"secondary"} size={"large"}>
+      Secondary
+    </Button>
+    <Button appearance={"secondary"} size={"large"} variation={"outline"}>
+      Secondary Outline
+    </Button>
+    <br />
+    <Button appearance={"dark"} size={"large"}>
+      Dark
+    </Button>
+    <Button appearance={"dark"} size={"large"} variation={"outline"}>
+      Dark Outline
+    </Button>
+    <br />
+    <Button appearance={"light"} size={"large"}>
+      Light
+    </Button>
+    <Button appearance={"light"} size={"large"} variation={"outline"}>
+      Light Outline
+    </Button>
+    <br />
   </div>
 );
 
 buttonSizes.story = {
   name: "sizes",
+};
+
+export const knobs = () => (
+  <Button
+    appearance={select("Appearance", [
+      "primary",
+      "danger",
+      "warning",
+      "success",
+      "secondary",
+      "dark",
+      "light",
+    ])}
+    size={select("Size", ["large", "medium", "small", "mini"])}
+    variation={select("Variation", ["fill", "outline"])}
+    isDisabled={boolean("Disabled")}
+  >
+    Button
+  </Button>
+);
+
+knobs.story = {
+  decorators: [withKnobs],
 };
