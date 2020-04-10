@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { rgba } from "polished";
-import { color, typography } from "./shared/styles";
+import {color, spacing, typography} from "./shared/styles";
 import { easing } from "./shared/animation";
 
 const Text = styled.span`
@@ -108,7 +108,7 @@ const switchColor = (props) => {
 
 const StyledButton = styled.button`
   border: .14rem solid transparent;
-  border-radius: 4px;
+  border-radius: ${spacing.borderRadius.small};
   cursor: pointer;
   display: inline-block;
   overflow: hidden;

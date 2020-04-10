@@ -53,7 +53,7 @@ export const spacing = {
     large: 30,
   },
   borderRadius: {
-    small: 5,
+    small: '4px',
     default: 10,
   },
 };
