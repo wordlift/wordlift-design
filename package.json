@@ -1,6 +1,6 @@
 {
   "name": "@wordlift/design",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "private": false,
   "dependencies": {
     "@babel/cli": "^7.8.4",

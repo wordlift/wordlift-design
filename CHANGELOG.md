@@ -1,3 +1,15 @@
+# v0.1.13 (Tue Apr 14 2020)
+
+#### ⚠️  Pushed to `master`
+
+- try to fix package.json ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.12 (Tue Apr 14 2020)
 
 #### ⚠️  Pushed to `master`
