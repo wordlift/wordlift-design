@@ -220,6 +220,7 @@ const switchPositionByPosition = (props) => {
 const PopoverPositioning = styled.span`
   visibility: ${(props) => (null == props.position ? "hidden" : "visible")};
   position: absolute;
+  z-index: 999999;
   ${(props) => switchPositionByPosition(props)}
 `;
 
