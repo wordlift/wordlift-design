@@ -24,3 +24,9 @@ yarn-error.log*
 
 # ignore storybook-static
 storybook-static/
+
+# ignore the dist folder.
+dist/
+
+# ignore the .env file.
+.env
