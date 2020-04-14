@@ -288,14 +288,7 @@ class PopoverManager extends React.Component {
    * @returns {"top"|"right"|"bottom"|"left"|null} The best position.
    */
   getSuitablePosition(size) {
-    const { top, right, bottom, left } = this.props;
-
-    const positions = [
-      POSITIONS.TOP,
-      POSITIONS.RIGHT,
-      POSITIONS.BOTTOM,
-      POSITIONS.LEFT,
-    ];
+    const { top, right, bottom, left, positions } = this.props;
 
     for (const position of positions) {
       switch (position) {
@@ -353,6 +346,40 @@ class PopoverManager extends React.Component {
   }
 }
 
+PopoverManager.propTypes = {
+  /**
+   * The `top` coordinate of the target element.
+   */
+  top: PropTypes.number.isRequired,
+  /**
+   * The `right` coordinate of the target element.
+   */
+  right: PropTypes.number.isRequired,
+  /**
+   * The `bottom` coordinate of the target element.
+   */
+  bottom: PropTypes.number.isRequired,
+  /**
+   * The `left` coordinate of the target element.
+   */
+  left: PropTypes.number.isRequired,
+  /**
+   * The preferred positions in order of preference
+   */
+  positions: PropTypes.arrayOf(
+    PropTypes.shape([
+      POSITIONS.TOP,
+      POSITIONS.RIGHT,
+      POSITIONS.BOTTOM,
+      POSITIONS.LEFT,
+    ])
+  ).isRequired,
+};
+
+PopoverManager.defaultProps = {
+  positions: [POSITIONS.TOP, POSITIONS.RIGHT, POSITIONS.BOTTOM, POSITIONS.LEFT],
+};
+
 /**
  * Create a Popover.
  *
@@ -360,7 +387,7 @@ class PopoverManager extends React.Component {
  * @param {string} id The popover id. Creating multiple popovers with the same id ensures only one is displayed at a
  *                    time.
  * @param {*} props The properties.
- * @returns {Element} The DOM element where the components are attached to.
+ * @returns {{el: Element, unmount: Function}} The DOM element where the components are attached to.
  */
 export const createPopover = (children, { id = "one", ...props }) => {
   const popoverId = `popover-${id}`;
@@ -392,10 +419,13 @@ export const createPopover = (children, { id = "one", ...props }) => {
   document.addEventListener("scroll", unmountFn);
   document.addEventListener("resize", unmountFn);
 
-  return ReactDOM.render(
-    <PopoverManager {...props}>{children}</PopoverManager>,
-    el
-  );
+  return {
+    el: ReactDOM.render(
+      <PopoverManager {...props}>{children}</PopoverManager>,
+      el
+    ),
+    unmount: unmountFn(),
+  };
 };
 
 createPopover.propTypes = {

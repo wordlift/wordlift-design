@@ -27,13 +27,15 @@ export const allPopovers = () => (
   </div>
 );
 
-export const createPopoverStory = () =>
+export const createPopoverStory = () => {
   createPopover(<Popover>Hello World!</Popover>, {
     top: 200,
     right: 200,
     bottom: 200,
     left: 200,
   });
+  return <div>This component requires interaction.</div>;
+};
 
 createPopoverStory.story = {
   name: "Create Popover",

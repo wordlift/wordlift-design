@@ -48,21 +48,22 @@
     "@storybook/react": "^5.3.18",
     "auto": "^9.26.8",
     "cross-env": "^7.0.2",
+    "polished": "^3.5.1",
     "prettier": "^2.0.4",
-    "tinymce": "4.2.8",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "storybook-chromatic": "^3.5.3",
     "styled-components": "^5.1.0",
+    "tinymce": "4.2.8"
+  },
+  "peerDependencies": {
     "polished": "^3.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
-  },
-  "peerDependencies": {
-    "styled-components": "^5.1.0",
-    "polished": "^3.5.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "styled-components": "^5.1.0"
   },
   "description": "WordLift Design",
   "main": "dist/index.js",
