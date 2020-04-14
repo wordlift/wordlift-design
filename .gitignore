@@ -30,3 +30,6 @@ dist/
 
 # ignore the .env file.
 .env
+
+# ignore IntelliJ IDEA files.
+.idea/
