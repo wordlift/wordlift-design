@@ -16,6 +16,7 @@ export default {
 
 export const allPopovers = () => (
   <div>
+    <Popover direction={null}>No direction</Popover>
     <Popover direction={"top"}>Top</Popover>
     <Popover direction={"left"}>Left</Popover>
     <Popover direction={"right"}>Right</Popover>
@@ -99,7 +100,7 @@ selectionPopover.story = {
         <div
           contentEditable={true}
           style={{
-            width: "calc( 100% - .8rem )",
+            width: "calc( 100% - 8.8rem )",
             height: "100%",
             fontFamily: "serif",
             fontSize: "1.2rem",
@@ -108,6 +109,7 @@ selectionPopover.story = {
             boxSizing: "border",
             border: "1px solid lightgray",
             outline: "none",
+            margin: "0 4rem",
           }}
           onSelect={() => {
             const selection = document.getSelection();
