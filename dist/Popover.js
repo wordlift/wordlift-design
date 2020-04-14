@@ -8,7 +8,7 @@ import _objectWithoutProperties from "/Users/david/Developer/wordlift/libraries/
 import _taggedTemplateLiteral from "/Users/david/Developer/wordlift/libraries/wordlift-design/node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/taggedTemplateLiteral";
 
 function _templateObject4() {
-  var data = _taggedTemplateLiteral(["\n  visibility: ", ";\n  position: absolute;\n  ", "\n"]);
+  var data = _taggedTemplateLiteral(["\n  visibility: ", ";\n  position: absolute;\n  z-index: 999999;\n  ", "\n"]);
 
   _templateObject4 = function _templateObject4() {
     return data;
