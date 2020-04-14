@@ -4,9 +4,13 @@
   "private": false,
   "dependencies": {
     "@babel/cli": "^7.8.4",
+    "@babel/runtime": "^7.9.2",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "react-scripts": "3.4.1"
   },
   "scripts": {
@@ -20,7 +24,12 @@
   },
   "babel": {
     "presets": [
-      "react-app"
+      [
+        "react-app",
+        {
+          "absoluteRuntime": false
+        }
+      ]
     ]
   },
   "eslintConfig": {
@@ -52,18 +61,11 @@
     "cross-env": "^7.0.2",
     "polished": "^3.5.1",
     "prettier": "^2.0.4",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "storybook-chromatic": "^3.5.3",
-    "styled-components": "^5.1.0",
-    "tinymce": "4.2.8"
+    "styled-components": "^5.1.0"
   },
   "peerDependencies": {
     "polished": "^3.5.1",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "styled-components": "^5.1.0"
   },
   "description": "WordLift Design",
