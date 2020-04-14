@@ -57,7 +57,7 @@
     "react-dom": "^16.13.1",
     "storybook-chromatic": "^3.5.3",
     "styled-components": "^5.1.0",
-    "tinymce": "4.2.8"
+    "tinymce": "4.9.7"
   },
   "peerDependencies": {
     "polished": "^3.5.1",
