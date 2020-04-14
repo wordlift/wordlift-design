@@ -1,3 +1,16 @@
+# v0.1.14 (Tue Apr 14 2020)
+
+#### ⚠️  Pushed to `master`
+
+- Merge branch 'master' of https://github.com/wordlift/wordlift-design ([@ziodave](https://github.com/ziodave))
+- try to fix package.json ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.13 (Tue Apr 14 2020)
 
 #### ⚠️  Pushed to `master`
