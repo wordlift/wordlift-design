@@ -1,3 +1,17 @@
+# v0.1.16 (Wed Apr 15 2020)
+
+#### ⚠️  Pushed to `master`
+
+- fix unmount reference. ([@ziodave](https://github.com/ziodave))
+- Merge branch 'master' of https://github.com/wordlift/wordlift-design ([@ziodave](https://github.com/ziodave))
+- fix babel absolute paths. ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.15 (Tue Apr 14 2020)
 
 #### ⚠️  Pushed to `master`
