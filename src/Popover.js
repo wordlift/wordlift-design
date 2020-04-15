@@ -424,7 +424,7 @@ export const createPopover = (children, { id = "one", ...props }) => {
       <PopoverManager {...props}>{children}</PopoverManager>,
       el
     ),
-    unmount: unmountFn(),
+    unmount: unmountFn,
   };
 };
 
