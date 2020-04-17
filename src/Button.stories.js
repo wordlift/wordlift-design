@@ -127,7 +127,7 @@ export const knobs = () => (
       "dark",
       "light",
     ])}
-    size={select("Size", ["large", "medium", "small", "mini"])}
+    size={select("Size", ["large", "medium", "small", "mini"], "medium")}
     variation={select("Variation", ["fill", "outline"])}
     isDisabled={boolean("Disabled")}
   >

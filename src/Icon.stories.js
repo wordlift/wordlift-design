@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react';
-import styled, { css } from 'styled-components';
+import React, { Fragment } from "react";
+import styled from "@emotion/styled";
+import { css } from "@emotion/core";
 
-import { Icon } from './Icon';
-import { icons } from './shared/icons';
+import { Icon } from "./Icon";
+import { icons } from "./shared/icons";
 
 const Meta = styled.div`
   color: #666;
@@ -24,7 +25,7 @@ const Item = styled.li`
     height: 24px;
   }
 
-  ${props =>
+  ${(props) =>
     props.minimal &&
     css`
       flex: none;
@@ -49,7 +50,7 @@ const List = styled.ul`
 `;
 
 export default {
-  title: 'Design System|Icon',
+  title: "Design System|Icon",
   component: Icon,
 };
 
@@ -57,7 +58,7 @@ export const labels = () => (
   <Fragment>
     There are {Object.keys(icons).length} icons
     <List>
-      {Object.keys(icons).map(key => (
+      {Object.keys(icons).map((key) => (
         <Item key={key}>
           <Icon icon={key} aria-hidden />
           <Meta>{key}</Meta>
@@ -69,7 +70,7 @@ export const labels = () => (
 
 export const noLabels = () => (
   <List>
-    {Object.keys(icons).map(key => (
+    {Object.keys(icons).map((key) => (
       <Item minimal key={key}>
         <Icon icon={key} aria-label={key} />
       </Item>
@@ -78,12 +79,13 @@ export const noLabels = () => (
 );
 
 noLabels.story = {
-  name: 'no labels',
+  name: "no labels",
 };
 
 export const inline = () => (
   <Fragment>
-    this is an inline <Icon icon="facehappy" aria-label="Happy face" /> icon (default)
+    this is an inline <Icon icon="facehappy" aria-label="Happy face" /> icon
+    (default)
   </Fragment>
 );
 

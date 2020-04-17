@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled from "@emotion/styled";
 import { rgba } from "polished";
 import {color, spacing, typography} from "./shared/styles";
 import { easing } from "./shared/animation";
