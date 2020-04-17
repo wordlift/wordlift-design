@@ -1,3 +1,17 @@
+# v0.1.17 (Fri Apr 17 2020)
+
+#### ⚠️  Pushed to `master`
+
+- transition from styled-components to emotion ([@ziodave](https://github.com/ziodave))
+- Merge branch 'master' of https://github.com/wordlift/wordlift-design ([@ziodave](https://github.com/ziodave))
+- downgrade to styled-components 4.4.x to allow WP 5.0 compatibility ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.16 (Wed Apr 15 2020)
 
 #### ⚠️  Pushed to `master`
