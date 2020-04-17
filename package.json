@@ -62,11 +62,11 @@
     "polished": "^3.5.1",
     "prettier": "^2.0.4",
     "storybook-chromatic": "^3.5.3",
-    "styled-components": "^5.1.0"
+    "styled-components": "^4.4.1"
   },
   "peerDependencies": {
     "polished": "^3.5.1",
-    "styled-components": "^5.1.0"
+    "styled-components": "^4.4.1"
   },
   "description": "WordLift Design",
   "main": "dist/index.js",
