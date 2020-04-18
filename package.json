@@ -77,8 +77,10 @@
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18",
     "auto": "^9.26.8",
+    "babel-loader": "^7.0.0",
     "babel-plugin-emotion": "~10.0.33",
     "cross-env": "^7.0.2",
+    "lodash-es": "~4.17.10",
     "polished": "^3.5.1",
     "prettier": "^2.0.4",
     "storybook-chromatic": "^3.5.3"
@@ -86,6 +88,7 @@
   "peerDependencies": {
     "@emotion/core": "~10.0",
     "@emotion/styled": "~10.0",
+    "lodash-es": "~4.17.10",
     "polished": "^3.5.1"
   },
   "description": "WordLift Design",

@@ -1,8 +1,15 @@
+/**
+ * External dependencies
+ */
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "@emotion/styled";
 import { rgba } from "polished";
-import {color, spacing, typography} from "./shared/styles";
+import memoize from "lodash-es/memoize";
+/**
+ * Internal dependencies
+ */
+import { color, spacing, typography } from "./shared/styles";
 import { easing } from "./shared/animation";
 
 const Text = styled.span`
@@ -413,7 +420,7 @@ export function Button({
     </Fragment>
   );
 
-  const StyledButtonWrapper = React.useMemo(() => applyStyle(ButtonWrapper), [
+  const StyledButtonWrapper = memoize(() => applyStyle(ButtonWrapper), [
     ButtonWrapper,
   ]);
 

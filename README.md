@@ -22,6 +22,7 @@ Some versions are available from the [element's package.json](https://github.com
 | Package | Version |
 | --- | --- | --- |
 | `lodash` | `^4.17.10` |
+| `lodash-es` | `^4.17.10` |
 | `react-dom` | `^16.6.3` |
 | `react` | `^16.6.3` |
 
