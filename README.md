@@ -27,3 +27,8 @@ Some versions are available from the [element's package.json](https://github.com
 | `react` | `^16.6.3` |
 
 That means that, in order to maintain WordPress 5.0+ compatibility we must stick to React 16.6.
+
+
+## References
+
+* Richard Tan (Mar 28, 2019), [Lodash-es vs individual Lodash utilities: Size comparison](https://itnext.io/lodash-es-vs-individual-lodash-utilities-size-comparison-676f14b07568)
