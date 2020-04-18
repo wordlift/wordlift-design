@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "lodash-es": "~4.17.10",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -79,7 +80,6 @@
     "auto": "^9.26.8",
     "babel-plugin-emotion": "~10.0.33",
     "cross-env": "^7.0.2",
-    "lodash-es": "~4.17.10",
     "polished": "^3.5.1",
     "prettier": "^2.0.4",
     "storybook-chromatic": "^3.5.3"
@@ -87,7 +87,6 @@
   "peerDependencies": {
     "@emotion/core": "~10.0",
     "@emotion/styled": "~10.0",
-    "lodash-es": "~4.17.10",
     "polished": "^3.5.1"
   },
   "description": "WordLift Design",

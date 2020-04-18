@@ -420,9 +420,10 @@ export function Button({
     </Fragment>
   );
 
-  const StyledButtonWrapper = memoize(() => applyStyle(ButtonWrapper), [
-    ButtonWrapper,
-  ]);
+  const StyledButtonWrapper = memoize(
+    () => applyStyle(ButtonWrapper),
+    () => ButtonWrapper
+  );
 
   let SelectedButton = StyledButton;
   if (ButtonWrapper) {
