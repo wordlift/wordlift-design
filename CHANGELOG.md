@@ -1,3 +1,18 @@
+# v0.1.19 (Sat Apr 18 2020)
+
+#### ⚠️  Pushed to `master`
+
+- fix memoize use ([@ziodave](https://github.com/ziodave))
+- remove babel-loader 7 from devDependencies since react-scripts requires babel-loader 8.1.0 already ([@ziodave](https://github.com/ziodave))
+- replace React.useMemo with lodash-es/memoize to maintain WordPress 5.0 compatibility. ([@ziodave](https://github.com/ziodave))
+- add babel-plugin-emotion ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.17 (Fri Apr 17 2020)
 
 #### ⚠️  Pushed to `master`
