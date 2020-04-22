@@ -1,3 +1,15 @@
+# v0.1.21 (Wed Apr 22 2020)
+
+#### ⚠️  Pushed to `master`
+
+- remove the outline from the popover; add the box-shadow ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.19 (Sat Apr 18 2020)
 
 #### ⚠️  Pushed to `master`
