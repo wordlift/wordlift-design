@@ -66,16 +66,17 @@ const switchFlexDirection = (direction) => {
  * @returns {string} The `border-width` attribute.
  */
 const switchBorderWidth = (direction) => {
+  const width = ".4rem";
   switch (direction) {
     case DIRECTIONS.TOP:
-      return "0 .5rem .5rem .5rem";
+      return `0 ${width} ${width} ${width}`;
     case DIRECTIONS.RIGHT:
-      return ".5rem 0 .5rem .5rem";
+      return `${width} 0 ${width} ${width}`;
     case DIRECTIONS.BOTTOM:
-      return ".5rem .5rem 0 .5rem";
+      return `${width} ${width} 0 ${width}`;
     // left
     default:
-      return ".5rem .5rem .5rem 0";
+      return `${width} ${width} ${width} 0`;
   }
 };
 
@@ -89,10 +90,10 @@ const switchBorderColor = (direction) => {
   switch (direction) {
     case DIRECTIONS.TOP:
     case DIRECTIONS.BOTTOM:
-      return `${color.primary} transparent`;
+      return `${color.lightest} transparent`;
     // left, right
     default:
-      return `transparent ${color.primary}`;
+      return `transparent ${color.lightest}`;
   }
 };
 
@@ -105,7 +106,7 @@ const PopoverContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => switchFlexDirection(props.direction)};
   align-items: center;
-  margin: 0.5rem;
+  margin: .5rem;
 `;
 
 /**
@@ -119,6 +120,7 @@ const PopoverArrow = styled.div`
   border-width: ${(props) => switchBorderWidth(props.direction)};
   width: 0;
   height: 0;
+  z-index: 999999;
 `;
 
 /**
@@ -128,8 +130,8 @@ const PopoverArrow = styled.div`
 const PopoverContent = styled.div`
   background: ${color.lightest};
   border-radius: ${spacing.borderRadius.small};
-  border: 0.12rem solid ${color.primary};
   padding: 0.8rem;
+  box-shadow: 0 1px 2rem 0 rgba(0, 0, 0, 0.16);
 `;
 
 /**
