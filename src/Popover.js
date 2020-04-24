@@ -106,7 +106,7 @@ const PopoverContainer = styled.div`
   display: flex;
   flex-direction: ${(props) => switchFlexDirection(props.direction)};
   align-items: center;
-  margin: .5rem;
+  margin: 0.5rem;
 `;
 
 /**
@@ -188,23 +188,19 @@ const switchPositionByPosition = (props) => {
   switch (props.position) {
     case POSITIONS.TOP:
       return `
-        top: ${props.top - props.height}px;
-        left: ${centerLeft}px;
+        transform: translate( ${centerLeft}px, ${props.top - props.height}px );
       `;
     case POSITIONS.RIGHT:
       return `
-        top: ${centerTop}px;
-        left: ${props.right}px;
+        transform: translate( ${props.right}px, ${centerTop}px );
       `;
     case POSITIONS.BOTTOM:
       return `
-        top: ${props.bottom}px;
-        left: ${centerLeft}px;
+        transform: translate( ${centerLeft}px, ${props.bottom}px );
       `;
     case POSITIONS.LEFT:
       return `
-        top: ${centerTop}px;
-        left: ${props.left - props.width}px;
+        transform: translate( ${props.left - props.width}px, ${centerTop}px );
       `;
     default:
     // No defaults.
@@ -264,7 +260,7 @@ const directionFromPosition = (position) => {
 /**
  * The PopoverManager loads a Popover and calculates the best position to display it based on the bounding box.
  */
-class PopoverManager extends React.Component {
+export class PopoverManager extends React.Component {
   /**
    * Creates an instance.
    *
@@ -275,10 +271,13 @@ class PopoverManager extends React.Component {
 
     this.getSuitablePosition = this.getSuitablePosition.bind(this);
 
-    // Receive the element.
-    this.setRef = (el) => {
-      this.el = el;
-    };
+    // Create the element where React will render this component. The element will be attached via ReactDOM.createPortal.
+    this.el = document.createElement("div");
+    this.el.style.position = "absolute";
+    this.el.style.top = "0";
+    this.el.style.left = "0";
+
+    this.setPopoverPositioningRef = (el) => (this.popoverPositioningEl = el);
   }
 
   /**
@@ -319,13 +318,16 @@ class PopoverManager extends React.Component {
   }
 
   componentDidMount() {
+    // Append our root element.
+    document.body.appendChild(this.el);
+
     // When the component is mount, its `visibility` is hidden because we didn't provide any position. We can then
     // get the offset width and height and use it to calculate the target position.
     //
     // When the target PopoverPositioning component will receive the position, it'll turn the component to `visible`.
     const size = {
-      width: this.el.offsetWidth,
-      height: this.el.offsetHeight,
+      width: this.popoverPositioningEl.offsetWidth,
+      height: this.popoverPositioningEl.offsetHeight,
     };
 
     // Get the best position given the size of the popover.
@@ -335,15 +337,21 @@ class PopoverManager extends React.Component {
     this.setState((state) => ({ ...state, ...size, position }));
   }
 
+  componentWillUnmount() {
+    // Remove our root element.
+    document.body.removeChild(this.el);
+  }
+
   render() {
     const { children, ...props } = { ...this.props, ...this.state };
 
-    return (
-      <PopoverPositioning {...props} ref={this.setRef}>
+    return ReactDOM.createPortal(
+      <PopoverPositioning {...props} ref={this.setPopoverPositioningRef}>
         <Popover direction={directionFromPosition(props.position)}>
           {children}
         </Popover>
-      </PopoverPositioning>
+      </PopoverPositioning>,
+      this.el
     );
   }
 }
@@ -368,14 +376,7 @@ PopoverManager.propTypes = {
   /**
    * The preferred positions in order of preference
    */
-  positions: PropTypes.arrayOf(
-    PropTypes.shape([
-      POSITIONS.TOP,
-      POSITIONS.RIGHT,
-      POSITIONS.BOTTOM,
-      POSITIONS.LEFT,
-    ])
-  ).isRequired,
+  positions: PropTypes.arrayOf(PropTypes.string),
 };
 
 PopoverManager.defaultProps = {

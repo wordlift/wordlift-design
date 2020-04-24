@@ -3,10 +3,11 @@
  */
 import React from "react";
 import ReactDOM from "react-dom";
+import styled from "@emotion/styled";
 /**
  * Internal dependencies
  */
-import { createPopover, Popover } from "./Popover";
+import { createPopover, Popover, PopoverManager } from "./Popover";
 import { Button } from "./Button";
 
 export default {
@@ -42,10 +43,6 @@ createPopoverStory.story = {
 };
 
 export const selectionPopover = () => <></>;
-
-createPopoverStory.story = {
-  name: "Create Popover",
-};
 
 selectionPopover.story = {
   decorators: [
@@ -103,3 +100,109 @@ selectionPopover.story = {
     ),
   ],
 };
+
+const StyledDraggable = styled.div`
+  ${(props) => `
+    transform: translate3d( ${props.x}px, ${props.y}px, 0 );
+  `}
+  border: 2px solid gray;
+  width: 120px;
+  height: 40px;
+  cursor: grab;
+  font-size: 0.5rem;
+  font-family: sans-serif;
+`;
+
+class Draggable extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.handleMouseDown = this.handleMouseDown.bind(this);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleMouseUp = this.handleMouseUp.bind(this);
+
+    this._handleMouseMove = () => {};
+
+    this.state = { top: 0, right: 0, bottom: 0, left: 0 };
+
+    this.setRef = (el) => (this.el = el);
+  }
+
+  handleMouseDown(e) {
+    const { x, y } = this.el.getBoundingClientRect();
+    this.offsetX = e.clientX - x;
+    this.offsetY = e.clientY - y;
+
+    this._handleMouseMove = (e) => {
+      e.preventDefault();
+
+      const { top, right, bottom, left } = this.el.getBoundingClientRect();
+
+      const coords = {
+        x: e.clientX - this.offsetX,
+        y: e.clientY - this.offsetY,
+      };
+
+      this.setState((state) => ({
+        ...state,
+        ...coords,
+        ...{ top, right, bottom, left },
+      }));
+    };
+  }
+
+  handleMouseMove(e) {
+    this._handleMouseMove(e);
+  }
+
+  handleMouseUp() {
+    this._handleMouseMove = () => {};
+  }
+
+  componentDidMount() {
+    const { top, right, bottom, left } = this.el.getBoundingClientRect();
+
+    this.setState((state) => ({ ...state, ...{ top, right, bottom, left } }));
+  }
+
+  render() {
+    const props = { ...this.props, ...this.state };
+
+    return (
+      <div
+        style={{
+          height: "400px",
+          border: "1px solid lightgray",
+          overflow: "hidden",
+        }}
+        onMouseMove={this.handleMouseMove}
+        onMouseUp={this.handleMouseUp}
+      >
+        <StyledDraggable
+          {...props}
+          onMouseDown={this.handleMouseDown}
+          ref={this.setRef}
+        >
+          {`x: ${props.x}, y: ${props.y}`}
+          <br />
+          {`top: ${props.top}, right: ${props.right}, bottom: ${props.bottom}, left: ${props.left}`}
+        </StyledDraggable>
+        <PopoverManager
+          top={props.top}
+          right={props.right}
+          bottom={props.bottom}
+          left={props.left}
+          positions={["bottom", "right", "top", "left"]}
+        >
+          <Button>Click Me</Button>
+        </PopoverManager>
+      </div>
+    );
+  }
+}
+
+export const draggable = () => (
+  <div>
+    <Draggable />
+  </div>
+);
