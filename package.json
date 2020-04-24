@@ -18,7 +18,7 @@
     "build": "cross-env BABEL_ENV=production babel src -d dist",
     "prepare": "npm run build",
     "test": "react-scripts test",
-    "storybook": "start-storybook -p 9009 -s public",
+    "storybook": "start-storybook -p 9009 -s public,node_modules/tinymce",
     "build-storybook": "build-storybook -s public",
     "build-storybook-docs": "build-storybook -s public --docs",
     "release": "auto shipit"
@@ -77,12 +77,14 @@
     "@storybook/addons": "^5.3.18",
     "@storybook/preset-create-react-app": "^2.1.1",
     "@storybook/react": "^5.3.18",
+    "@wordpress/editor": "9.0.10",
     "auto": "^9.26.8",
     "babel-plugin-emotion": "~10.0.33",
     "cross-env": "^7.0.2",
     "polished": "^3.5.1",
     "prettier": "^2.0.4",
-    "storybook-chromatic": "^3.5.3"
+    "storybook-chromatic": "^3.5.3",
+    "tinymce": "^4"
   },
   "peerDependencies": {
     "@emotion/core": "~10.0",
