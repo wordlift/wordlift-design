@@ -1,3 +1,15 @@
+# v0.1.22 (Fri Apr 24 2020)
+
+#### ⚠️  Pushed to `master`
+
+- make Popover a Portal ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.21 (Wed Apr 22 2020)
 
 #### ⚠️  Pushed to `master`
