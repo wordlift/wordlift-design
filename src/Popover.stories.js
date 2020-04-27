@@ -5,12 +5,24 @@ import React from "react";
 import styled from "@emotion/styled";
 import tinymce from "tinymce/tinymce";
 import "tinymce/themes/modern/theme";
-import Editor from "@wordpress/editor";
+import { initializeEditor } from "@wordpress/edit-post";
+import domReady from "@wordpress/dom-ready";
+import { registerCoreBlocks } from "@wordpress/block-library";
+import {
+  BlockList,
+  ObserveTyping,
+  PostTitle,
+  WritingFlow,
+} from "@wordpress/editor";
+import { withFilters } from "@wordpress/components";
+import { addFilter } from "@wordpress/hooks";
 /**
  * Internal dependencies
  */
 import { createPopover, Popover, PopoverManager } from "./Popover";
 import { Button } from "./Button";
+
+registerCoreBlocks();
 
 export default {
   title: "Design System|Popover",
@@ -359,8 +371,86 @@ export const tinymceEditor = () => (
   </>
 );
 
+addFilter(
+  "experimentalRichText",
+  "wordlift/design/selection-change",
+  (FilteredComponent) =>
+    class extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.handleBlur = this.handleBlur.bind(this);
+        this.handleFocus = this.handleFocus.bind(this);
+        this.handleSelectionChange = this.handleSelectionChange.bind(this);
+      }
+
+      handleBlur() {
+        document.removeEventListener(
+          "selectionchange",
+          this.handleSelectionChange
+        );
+      }
+
+      handleFocus() {
+        document.addEventListener(
+          "selectionchange",
+          this.handleSelectionChange
+        );
+      }
+
+      handleSelectionChange() {
+        const selection = document.getSelection().getRangeAt(0);
+        const contents = selection.cloneContents();
+        const container = document.createElement("p");
+        container.appendChild(contents);
+
+        const text = selection.toString();
+        const html = container.innerHTML;
+        const clientRect = selection.getBoundingClientRect();
+        const rect =
+          "" !== text // Explicitly destructuring is required with clientRect.
+            ? {
+                top: clientRect.top,
+                right: clientRect.right,
+                bottom: clientRect.bottom,
+                left: clientRect.left,
+              }
+            : null;
+
+        const payload = {
+          selection: { text, html, rect },
+          editor: { id: "gutenberg" },
+          source: "gutenberg",
+        };
+
+        window.postMessage(
+          { type: "wordlift/design/editor/selectionChange", payload },
+          window.origin
+        );
+
+        console.log({ payload });
+      }
+
+      render() {
+        return (
+          <div onBlur={this.handleBlur} onFocus={this.handleFocus}>
+            <FilteredComponent {...this.props} />
+          </div>
+        );
+      }
+    }
+);
+
 export const gutenbergEditor = () => (
-  <>
-    <Editor />
-  </>
+  <div className={"edit-post-visual-editor"}>
+    <WritingFlow>
+      <ObserveTyping>
+        <PostTitle />
+        <BlockList />
+      </ObserveTyping>
+    </WritingFlow>
+    <PopoverWithTinyMCE>
+      <Button>Click Me</Button>
+    </PopoverWithTinyMCE>
+  </div>
 );

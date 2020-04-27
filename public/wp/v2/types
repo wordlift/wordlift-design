@@ -1,0 +1,146 @@
+{
+  "post": {
+    "description": "",
+    "hierarchical": false,
+    "name": "Posts",
+    "slug": "post",
+    "taxonomies": [
+      "category",
+      "post_tag",
+      "wl_entity_type"
+    ],
+    "rest_base": "posts",
+    "_links": {
+      "collection": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/types"
+        }
+      ],
+      "wp:items": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/posts"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  "page": {
+    "description": "",
+    "hierarchical": true,
+    "name": "Pages",
+    "slug": "page",
+    "taxonomies": [
+      "wl_entity_type"
+    ],
+    "rest_base": "pages",
+    "_links": {
+      "collection": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/types"
+        }
+      ],
+      "wp:items": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/pages"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  "attachment": {
+    "description": "",
+    "hierarchical": false,
+    "name": "Media",
+    "slug": "attachment",
+    "taxonomies": [],
+    "rest_base": "media",
+    "_links": {
+      "collection": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/types"
+        }
+      ],
+      "wp:items": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/media"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  "wp_block": {
+    "description": "",
+    "hierarchical": false,
+    "name": "Blocks",
+    "slug": "wp_block",
+    "taxonomies": [],
+    "rest_base": "blocks",
+    "_links": {
+      "collection": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/types"
+        }
+      ],
+      "wp:items": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/blocks"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  },
+  "entity": {
+    "description": "Holds our vocabulary (set of entities) and entity specific data",
+    "hierarchical": false,
+    "name": "Vocabulary",
+    "slug": "entity",
+    "taxonomies": [
+      "category",
+      "wl_entity_type"
+    ],
+    "rest_base": "entities",
+    "_links": {
+      "collection": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/types"
+        }
+      ],
+      "wp:items": [
+        {
+          "href": "https://wordlift.localhost/wp-json/wp/v2/entities"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+}

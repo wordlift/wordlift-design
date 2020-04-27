@@ -1,0 +1,115 @@
+{
+  "id": 91,
+  "date": "2020-04-27T08:24:56",
+  "date_gmt": "2020-04-27T08:24:56",
+  "guid": {
+    "rendered": "https://wordlift.localhost/?p=91"
+  },
+  "modified": "2020-04-27T08:24:58",
+  "modified_gmt": "2020-04-27T08:24:58",
+  "slug": "what-is-wordlift-classic-editor-in-block-editor",
+  "status": "publish",
+  "type": "post",
+  "link": "https://wordlift.localhost/what-is-wordlift-classic-editor-in-block-editor/",
+  "title": {
+    "rendered": "What is WordLift Classic Editor in Block Editor"
+  },
+  "content": {
+    "rendered": "<p>What is <strong>WordLift</strong>?</p>\n<p>WordLift is the first semantic SEO tool that uses natural language processing and linked data publishing for automating structured data markup. WordLift analyzes articles and transforms text into machine-friendly content to improve the audience engagement and to increase the organic traffic of a website. The plugin also provides support for content recommendations.</p>\n",
+    "protected": false
+  },
+  "excerpt": {
+    "rendered": "<p>What is WordLift? WordLift is the first semantic SEO tool that uses natural language processing and linked data publishing for automating structured data markup. WordLift analyzes articles and transforms text into machine-friendly content to improve the audience engagement and to increase the organic traffic of a website. The plugin also provides support for content recommendations.</p>\n",
+    "protected": false
+  },
+  "author": 1,
+  "featured_media": 0,
+  "comment_status": "open",
+  "ping_status": "open",
+  "sticky": false,
+  "template": "",
+  "format": "standard",
+  "meta": {
+    "wl_entities_gutenberg": "",
+    "_wl_alt_label": [],
+    "_wl_entity_redirect_enabled": ""
+  },
+  "categories": [
+    1
+  ],
+  "tags": [],
+  "wl_entity_type": [
+    10
+  ],
+  "wl:entity_url": "http://data.wordlift.io/wl01093/post/what_is_wordlift_classic_editor_in_block_editor",
+  "_links": {
+    "self": [
+      {
+        "href": "https://wordlift.localhost/wp-json/wp/v2/posts/91"
+      }
+    ],
+    "collection": [
+      {
+        "href": "https://wordlift.localhost/wp-json/wp/v2/posts"
+      }
+    ],
+    "about": [
+      {
+        "href": "https://wordlift.localhost/wp-json/wp/v2/types/post"
+      }
+    ],
+    "author": [
+      {
+        "embeddable": true,
+        "href": "https://wordlift.localhost/wp-json/wp/v2/users/1"
+      }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://wordlift.localhost/wp-json/wp/v2/comments?post=91"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 2,
+        "href": "https://wordlift.localhost/wp-json/wp/v2/posts/91/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 93,
+        "href": "https://wordlift.localhost/wp-json/wp/v2/posts/91/revisions/93"
+      }
+    ],
+    "wp:attachment": [
+      {
+        "href": "https://wordlift.localhost/wp-json/wp/v2/media?parent=91"
+      }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "category",
+        "embeddable": true,
+        "href": "https://wordlift.localhost/wp-json/wp/v2/categories?post=91"
+      },
+      {
+        "taxonomy": "post_tag",
+        "embeddable": true,
+        "href": "https://wordlift.localhost/wp-json/wp/v2/tags?post=91"
+      },
+      {
+        "taxonomy": "wl_entity_type",
+        "embeddable": true,
+        "href": "https://wordlift.localhost/wp-json/wp/v2/wl_entity_type?post=91"
+      }
+    ],
+    "curies": [
+      {
+        "name": "wp",
+        "href": "https://api.w.org/{rel}",
+        "templated": true
+      }
+    ]
+  }
+}
