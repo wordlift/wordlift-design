@@ -1,3 +1,15 @@
+# v0.1.23 (Mon Apr 27 2020)
+
+#### ⚠️  Pushed to `master`
+
+- add support for Block Editor selections ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.22 (Fri Apr 24 2020)
 
 #### ⚠️  Pushed to `master`
