@@ -1,3 +1,15 @@
+# v0.1.24 (Tue Apr 28 2020)
+
+#### ⚠️  Pushed to `master`
+
+- rename Editor Events HOC ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.23 (Mon Apr 27 2020)
 
 #### ⚠️  Pushed to `master`
