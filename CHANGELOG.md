@@ -1,3 +1,16 @@
+# v0.1.27 (Tue Apr 28 2020)
+
+#### ⚠️  Pushed to `master`
+
+- Merge branch 'master' of https://github.com/wordlift/wordlift-design ([@ziodave](https://github.com/ziodave))
+- add Accordion ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.26 (Tue Apr 28 2020)
 
 #### ⚠️  Pushed to `master`
