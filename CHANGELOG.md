@@ -1,3 +1,16 @@
+# v0.1.26 (Tue Apr 28 2020)
+
+#### ⚠️  Pushed to `master`
+
+- fix register function ([@ziodave](https://github.com/ziodave))
+- add the register fn to withEditorEvents to add the filter to WP ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.25 (Tue Apr 28 2020)
 
 #### ⚠️  Pushed to `master`
