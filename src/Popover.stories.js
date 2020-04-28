@@ -288,7 +288,7 @@ Sed turpis tincidunt id aliquet risus feugiat. Enim facilisis gravida neque conv
   }
 }
 
-function withTinyMCE(WrappedComponent) {
+function withEditorEvents(WrappedComponent) {
   return class extends React.Component {
     constructor(props) {
       super(props);
@@ -360,14 +360,14 @@ function withTinyMCE(WrappedComponent) {
   };
 }
 
-const PopoverWithTinyMCE = withTinyMCE(PopoverManager);
+const PopoverWithEditorEvents = withEditorEvents(PopoverManager);
 
 export const tinymceEditor = () => (
   <>
     <TinyMCE></TinyMCE>
-    <PopoverWithTinyMCE>
+    <PopoverWithEditorEvents>
       <Button>Click Me</Button>
-    </PopoverWithTinyMCE>
+    </PopoverWithEditorEvents>
   </>
 );
 
@@ -449,8 +449,8 @@ export const gutenbergEditor = () => (
         <BlockList />
       </ObserveTyping>
     </WritingFlow>
-    <PopoverWithTinyMCE>
+    <PopoverWithEditorEvents>
       <Button>Click Me</Button>
-    </PopoverWithTinyMCE>
+    </PopoverWithEditorEvents>
   </div>
 );
