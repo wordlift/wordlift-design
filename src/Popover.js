@@ -453,3 +453,75 @@ createPopover.propTypes = {
    */
   left: PropTypes.number.isRequired,
 };
+
+export function withEditorEvents(WrappedComponent) {
+  return class extends React.Component {
+    constructor(props) {
+      super(props);
+
+      this.handleMessage = this.handleMessage.bind(this);
+      this.handleSelectionChange = this.handleSelectionChange.bind(this);
+      this.handleScroll = this.handleScroll.bind(this);
+    }
+
+    handleMessage(e) {
+      if (window.origin !== e.origin || undefined === e.data.type) return;
+
+      switch (e.data.type) {
+        case "wordlift/design/editor/selectionChange":
+          this.handleSelectionChange(e);
+          break;
+        case "wordlift/design/editor/scroll":
+        case "wordlift/design/editor/resize":
+          this.hasSelection() && this.handleScroll(e);
+          break;
+        default:
+        // Ignore
+      }
+    }
+
+    handleSelectionChange(e) {
+      const { selection } = e.data.payload;
+
+      this.setState((state) => ({ ...selection }));
+    }
+
+    handleScroll(e) {
+      // The element has scrolled, the rect isn't valid anymore. Remove it.
+      this.setState((state) => ({ rect: undefined }));
+    }
+
+    hasSelection() {
+      return (
+        // There's state.
+        this.state &&
+        // There's a text selection (not empty).
+        this.state.text &&
+        // There's a rect geometry.
+        this.state.rect &&
+        this.state.rect.top &&
+        this.state.rect.right &&
+        this.state.rect.bottom &&
+        this.state.rect.left
+      );
+    }
+
+    componentDidMount() {
+      window.addEventListener("message", this.handleMessage);
+    }
+
+    componentWillUnmount() {
+      window.removeEventListener("message", this.handleMessage);
+    }
+
+    render() {
+      const { children, ...props } = { ...this.props, ...this.state };
+
+      return (
+        (this.hasSelection() && (
+          <WrappedComponent {...props.rect}>{children}</WrappedComponent>
+        )) || <></>
+      );
+    }
+  };
+}
