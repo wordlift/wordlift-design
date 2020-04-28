@@ -1,3 +1,15 @@
+# v0.1.25 (Tue Apr 28 2020)
+
+#### ⚠️  Pushed to `master`
+
+- add HOC withEditorEvents among exports ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.24 (Tue Apr 28 2020)
 
 #### ⚠️  Pushed to `master`
