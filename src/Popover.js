@@ -20,6 +20,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import styled from "@emotion/styled";
+import { addFilter } from "@wordpress/hooks";
 /**
  * Internal dependencies
  */
@@ -525,3 +526,71 @@ export function withEditorEvents(WrappedComponent) {
     }
   };
 }
+
+withEditorEvents.register = addFilter(
+  "experimentalRichText",
+  "wordlift/design/selection-change",
+  (FilteredComponent) =>
+    class extends React.Component {
+      constructor(props) {
+        super(props);
+
+        this.handleBlur = this.handleBlur.bind(this);
+        this.handleFocus = this.handleFocus.bind(this);
+        this.handleSelectionChange = this.handleSelectionChange.bind(this);
+      }
+
+      handleBlur() {
+        document.removeEventListener(
+          "selectionchange",
+          this.handleSelectionChange
+        );
+      }
+
+      handleFocus() {
+        document.addEventListener(
+          "selectionchange",
+          this.handleSelectionChange
+        );
+      }
+
+      handleSelectionChange() {
+        const selection = document.getSelection().getRangeAt(0);
+        const contents = selection.cloneContents();
+        const container = document.createElement("p");
+        container.appendChild(contents);
+
+        const text = selection.toString();
+        const html = container.innerHTML;
+        const clientRect = selection.getBoundingClientRect();
+        const rect =
+          "" !== text // Explicitly destructuring is required with clientRect.
+            ? {
+                top: clientRect.top,
+                right: clientRect.right,
+                bottom: clientRect.bottom,
+                left: clientRect.left,
+              }
+            : null;
+
+        const payload = {
+          selection: { text, html, rect },
+          editor: { id: "gutenberg" },
+          source: "gutenberg",
+        };
+
+        window.postMessage(
+          { type: "wordlift/design/editor/selectionChange", payload },
+          window.origin
+        );
+      }
+
+      render() {
+        return (
+          <div onBlur={this.handleBlur} onFocus={this.handleFocus}>
+            <FilteredComponent {...this.props} />
+          </div>
+        );
+      }
+    }
+);
