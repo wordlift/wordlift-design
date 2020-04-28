@@ -3,6 +3,7 @@
  */
 import React from "react";
 import styled from "@emotion/styled";
+import PropTypes from "prop-types";
 
 /**
  * Internal dependencies
@@ -72,6 +73,30 @@ export function Accordion({ title, onClick, open, children, ...props }) {
   );
 }
 
+Accordion.propTypes = {
+  /**
+   * The accordion title
+   */
+  title: PropTypes.string.isRequired,
+  /**
+   * The accordion's contents.
+   */
+  children: PropTypes.any.isRequired,
+  /**
+   * The onClick handler.
+   */
+  onClick: PropTypes.func,
+  /**
+   * Whether the accordion is open.
+   */
+  open: PropTypes.bool,
+};
+
+Accordion.defaultProps = {
+  onClick: () => {},
+  open: false,
+};
+
 export function withCloseable(WrappedComponent) {
   return class extends React.Component {
     constructor(props) {
@@ -130,3 +155,14 @@ export class AccordionGroup extends React.Component {
     );
   }
 }
+
+AccordionGroup.propTypes = {
+  /**
+   * Which accordion is open.
+   */
+  open: PropTypes.string,
+  /**
+   * The accordions.
+   */
+  children: PropTypes.arrayOf(Accordion),
+};

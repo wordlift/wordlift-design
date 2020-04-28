@@ -30,7 +30,7 @@ const StyledAccordion = styled(Accordion)`
 `;
 
 export const accordionGroup = () => (
-  <AccordionGroup open={1}>
+  <AccordionGroup open={"1"}>
     <StyledAccordion key={1} title={"Accordion 1"}>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium
       beatae blanditiis cupiditate doloremque ducimus esse, explicabo, illum
