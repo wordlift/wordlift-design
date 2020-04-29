@@ -19,7 +19,7 @@ const Heading = styled.div`
   ${commonCss}
   display: flex;
   align-items: center;
-  ${(props) => props.open && `background: #f0f2f5;`}
+  ${(props) => props.open && `background: red;`}
   font-size: 1.125rem;
   font-weight: ${typography.weight.bold};
   cursor: pointer;
