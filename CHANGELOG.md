@@ -1,3 +1,15 @@
+# v0.1.28 (Tue Apr 28 2020)
+
+#### ⚠️  Pushed to `master`
+
+- add proptypes ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.27 (Tue Apr 28 2020)
 
 #### ⚠️  Pushed to `master`
