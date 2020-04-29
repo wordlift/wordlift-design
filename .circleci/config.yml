@@ -16,7 +16,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
       - run: yarn test
-      - run: yarn chromatic test --app-code=cxe8ihcp3o --exit-zero-on-changes
+      - run: yarn chromatic test --app-code=nn8ghi7dfi8 --exit-zero-on-changes
       - run: |
           if [ $CIRCLE_BRANCH = "master" ]
           then
