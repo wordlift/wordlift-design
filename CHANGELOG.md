@@ -1,3 +1,18 @@
+# v0.1.29 (Thu Apr 30 2020)
+
+#### ⚠️  Pushed to `master`
+
+- add  --frozen-lockfile to yarn install ([@ziodave](https://github.com/ziodave))
+- add support for scroll and resize events ([@ziodave](https://github.com/ziodave))
+- Merge branch 'master' of https://github.com/wordlift/wordlift-design ([@ziodave](https://github.com/ziodave))
+- update Chromatic key ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.28 (Tue Apr 28 2020)
 
 #### ⚠️  Pushed to `master`
