@@ -527,7 +527,7 @@ export function withEditorEvents(WrappedComponent) {
   };
 }
 
-withEditorEvents.register = () =>
+withEditorEvents.register = () => {
   addFilter(
     "experimentalRichText",
     "wordlift/design/selection-change",
@@ -595,3 +595,14 @@ withEditorEvents.register = () =>
         }
       }
   );
+
+  document.querySelectorAll(".edit-post-layout__content").forEach((el) => {
+    el.addEventListener("scroll", function () {
+      postMessage("wordlift/design/editor/scroll");
+    });
+  });
+
+  window.addEventListener("resize", function () {
+    postMessage("wordlift/design/editor/resize");
+  });
+};
