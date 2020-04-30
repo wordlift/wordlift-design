@@ -1,3 +1,15 @@
+# v0.1.30 (Thu Apr 30 2020)
+
+#### ⚠️  Pushed to `master`
+
+- fix postMessage ([@ziodave](https://github.com/ziodave))
+
+#### Authors: 1
+
+- David Riccitelli ([@ziodave](https://github.com/ziodave))
+
+---
+
 # v0.1.29 (Thu Apr 30 2020)
 
 #### ⚠️  Pushed to `master`
