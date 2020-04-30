@@ -598,11 +598,17 @@ withEditorEvents.register = () => {
 
   document.querySelectorAll(".edit-post-layout__content").forEach((el) => {
     el.addEventListener("scroll", function () {
-      postMessage("wordlift/design/editor/scroll");
+      window.postMessage(
+        { type: "wordlift/design/editor/scroll" },
+        window.origin
+      );
     });
   });
 
   window.addEventListener("resize", function () {
-    postMessage("wordlift/design/editor/resize");
+    window.postMessage(
+      { type: "wordlift/design/editor/resize" },
+      window.origin
+    );
   });
 };
