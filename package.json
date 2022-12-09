@@ -88,7 +88,7 @@
     "polished": "^3.5.1",
     "prettier": "^2.0.4",
     "storybook-chromatic": "^3.5.3",
-    "tinymce": "^4"
+    "tinymce": "^5"
   },
   "resolutions": {
     "@wordpress/**/@wordpress/a11y": "2.0.2",
